@@ -1,5 +1,7 @@
 import curses
 import curses.textpad
+import CLI_Audio_Exception
+import os
 
 import sys
 
@@ -12,6 +14,13 @@ class FrontEnd:
 
     def menu(self, args):
         self.stdscr = curses.initscr()
+            try:
+                height, width = self.stdscr.getmaxyx()
+                if (height < 20 or width < 100):
+                    raise CLI_Screen_Size_Exception
+            except CLI_Screen_Size_Exception:
+                print("Screen size is too small")
+                self.quit()
         self.stdscr.border()
         self.stdscr.addstr(0,0, "cli-audio",curses.A_REVERSE)
         self.stdscr.addstr(5,10, "c - Change current song")
