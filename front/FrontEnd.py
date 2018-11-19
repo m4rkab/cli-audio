@@ -57,7 +57,10 @@ class FrontEnd:
         self.stdscr.touchwin()
         self.stdscr.refresh()
         self.player.stop()
-        self.player.play(path.decode(encoding="utf-8"))
+            try:
+                self.player.play(path.decode(encoding="utf-8"))
+            except CLI_File_Exception:
+                print("File path does not exist")
         
 
     def quit(self):
