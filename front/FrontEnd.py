@@ -29,7 +29,8 @@ class FrontEnd:
                 self.updateSong()
                 self.stdscr.refresh()
         except:
-            print("Screen size too small)
+            print("Screen size too small")
+            self.quit()
                 
         while True:
             c = self.stdscr.getch()
