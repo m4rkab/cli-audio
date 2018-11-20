@@ -34,20 +34,28 @@ class Player:
 
     def play(self, track):
         # allows the player to play music.
+        #self.paused = False
+        #try:
+        #    if not Path(track).is_file():
+        #        raise CLI_Audio_Exception.CLI_File_Exception
+       # except CLI_Audio_Exception.CLI_File_Exception:
+        #    currentSong = "Nothing playing."
+       #     self.stdscr.refresh()
+        #    print("File not found")
+        #    return 0;
+        pathWithExt = track + '.wav'
+        if pathWithExt not in self.mediaFiles:
+                raise CLI_Audio_Exception.CLI_Audio_File_Exception
         self.paused = False
-        try:
-            if not Path(track).is_file():
-                raise CLI_Audio_Exception.CLI_File_Exception
-        except CLI_Audio_Exception.CLI_File_Exception:
-            currentSong = "Nothing playing."
-            self.stdscr.refresh()
-            print("File not found")
-            return 0;
-        
-        
         self.currentSong = track
+        self.trackPlaying = track
         track = './media/' + track + '.wav'
-        self.wf = wave.open(track, 'rb')
+        self.wf = wave.open(track, 'rb') #acquire track
+        
+        
+        #self.currentSong = track
+        #track = './media/' + track + '.wav'
+        #self.wf = wave.open(track, 'rb')
 
         # instantiate PyAudio (1)
         self.p = pyaudio.PyAudio()
