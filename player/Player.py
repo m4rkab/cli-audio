@@ -84,6 +84,6 @@ class Player:
             if extension == ".wav":
                 self.songlist.append(filename)
                 
-        print (self.songlist)
+        return self.songlist
                                   
 
