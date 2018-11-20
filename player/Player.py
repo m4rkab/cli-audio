@@ -78,5 +78,6 @@ class Player:
                 self.songlist.append(filename)
                 
         return self.songlist
+        self.currentSong = "Nothing playing."
                                   
 
