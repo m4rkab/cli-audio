@@ -58,11 +58,13 @@ class Player:
         self.stream.start_stream()
 
     def stop(self):
-        self.stream.stop_stream()
-        self.stream.close()
-        self.wf.close()
-
-        self.p.terminate() 
+        try:
+            self.stream.stop_stream()
+            self.stream.close()
+            self.wf.close()
+            self.p.terminate() 
+        except:
+            pass
 
     def callback(self, in_data, frame_count, time_info, status):
         data = self.wf.readframes(frame_count)
