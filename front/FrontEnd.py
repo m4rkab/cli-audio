@@ -19,7 +19,7 @@ class FrontEnd:
             height, width = self.stdscr.getmaxyx()
             if (height < 20 or width < 100):
                 raise CLI_Audio_Exception.CLI_Screen_Size_Exception
-        except:
+        except CLI_Audio_Exception.CLI_Screen_Size_Exception:
             print("Screen size too small")
             self.quit()
             
