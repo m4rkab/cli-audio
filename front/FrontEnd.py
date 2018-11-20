@@ -27,6 +27,7 @@ class FrontEnd:
                 self.updateSong()
                 self.stdscr.refresh()
         except:
+            return 0
                 
         while True:
             c = self.stdscr.getch()
