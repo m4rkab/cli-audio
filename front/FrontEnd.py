@@ -17,7 +17,7 @@ class FrontEnd:
         self.stdscr = curses.initscr()
         try:
             height, width = self.stdscr.getmaxyx()
-            if (height < 20 or width < 100):
+            if (height < 20 or width < 60):
                 raise CLI_Screen_Size_Exception
             else:
                 self.stdscr.border()
@@ -29,7 +29,7 @@ class FrontEnd:
                 self.updateSong()
                 self.stdscr.refresh()
         except:
-            return 0
+            print("Screen size too small)
                 
         while True:
             c = self.stdscr.getch()
