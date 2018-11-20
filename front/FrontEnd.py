@@ -26,7 +26,7 @@ class FrontEnd:
             height, width = self.stdscr.getmaxyx()
             if (height < 20 or width < 100):
             	raise CLI_Screen_Size_Exception
-	   else:
+	    else:
 		self.stdscr.border()
 		self.stdscr.addstr(0,0, "cli-audio",curses.A_REVERSE)
 		self.stdscr.addstr(5,10, "c - Change current song")
