@@ -3,17 +3,25 @@
 import pyaudio
 import wave
 import time
+import os
+from pathlib import Path
+import CLI_Audio_Exception
 
 class Player:
     def __init__(self):
+        # start with no song being played
         self.currentSong = "Nothing playing."
         self.paused = True
         self.position = 0
+        self.playlist = []
 
     def getCurrentSong(self):
+        # returns the current song
         return self.currentSong
 
     def pause(self):
+        # if the song is paused then the stream is stopped.
+        # once pressed again, the song continues.
         if self.paused == False:
             self.paused = True
             self.stream.stop_stream()
@@ -22,7 +30,17 @@ class Player:
             self.stream.start_stream()
 
     def play(self, track):
+        # allows the player to play music.
         self.paused = False
+        try:
+            if not Path(track).is_file():
+                raise CLI_Audio_Exception.CLI_File_Exception
+        except CLI_Audio_Exception.CLI_File_Exception:
+            currentSong = "Nothing playing."
+            print("File not found")
+            return 0;
+        
+        
         self.currentSong = track
         self.wf = wave.open(track, 'rb')
 
