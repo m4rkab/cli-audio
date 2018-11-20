@@ -79,9 +79,8 @@ class FrontEnd:
         self.player.stop()
         try:
             self.player.play(path.decode(encoding="utf-8"))
-        except CLI_Audio_Exception.CLI_File_Exception
-            print("That file does not exist")
-            
+        except:
+            print("File path does not exist.")
         
 
     def quit(self):
