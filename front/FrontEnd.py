@@ -20,8 +20,7 @@ class FrontEnd:
             if (height < 20 or width < 100):
                 raise CLI_Audio_Exception.CLI_Screen_Size_Exception
         except CLI_Audio_Exception.CLI_Screen_Size_Exception:
-            print("Screen size too small")
-            sys.exit(1)
+            sys.exit("Screen size too small")
             
         self.stdscr.border()
         self.stdscr.addstr(0,0, "cli-audio",curses.A_REVERSE)
