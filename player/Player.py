@@ -22,12 +22,15 @@ class Player:
     def pause(self):
         # if the song is paused then the stream is stopped.
         # once pressed again, the song continues.
-        if self.paused == False:
-            self.paused = True
-            self.stream.stop_stream()
-        else:
-            self.paused = False
-            self.stream.start_stream()
+        try:
+            if self.paused == False:
+                self.paused = True
+                self.stream.stop_stream()
+            else:
+                self.paused = False
+                self.stream.start_stream()
+        except:
+            pass
 
     def play(self, track):
         # allows the player to play music.
