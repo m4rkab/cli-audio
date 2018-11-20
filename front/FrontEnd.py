@@ -1,5 +1,7 @@
 import curses
 import curses.textpad
+import CLI_Audio_Exception
+import os
 
 import sys
 
