@@ -7,7 +7,7 @@ class FrontEnd:
 
     def __init__(self, player):
         self.player = player
-        self.player.play(sys.argv[1])
+        #self.player.play(sys.argv[1])
         curses.wrapper(self.menu)
 
     def menu(self, args):
