@@ -84,6 +84,6 @@ class Player:
             if extension == ".wav":
                 self.songlist.append(filename)
                 
-        print('[%s]' % ', '.join(map(str, songlist)))
+        print('[%s]' % ', '.join(map(str, self.songlist)))
                                   
 
