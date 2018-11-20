@@ -46,6 +46,7 @@ class Player:
         
         
         self.currentSong = track
+        track = './media/' + track + '.wav'
         self.wf = wave.open(track, 'rb')
 
         # instantiate PyAudio (1)
