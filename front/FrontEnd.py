@@ -34,9 +34,9 @@ class FrontEnd:
                 self.updateSong()
                 self.stdscr.refresh()
         
-        except CLI_Screen_Size_Exception:
-            print("Increase your window size!")
-            return 0
+        except CLI_Audio_Exception.CLI_Screen_Size_Exception:
+            print("screen size is too small")
+            self.quit()
 
         # while the True boolean is true, the menu allows for certain actions 
         # to be taken when the corresponding key is pressed. The first line in 
