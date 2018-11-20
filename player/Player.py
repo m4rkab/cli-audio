@@ -40,6 +40,7 @@ class Player:
                 raise CLI_Audio_Exception.CLI_File_Exception
         except CLI_Audio_Exception.CLI_File_Exception:
             currentSong = "Nothing playing."
+            self.stdscr.refresh()
             print("File not found")
             return 0;
         
