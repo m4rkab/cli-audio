@@ -23,9 +23,6 @@ class FrontEnd:
             height, width = self.stdscr.getmaxyx()
             if height < 20 or width < 100:
                 raise CLI_Screen_Size_Exception
-        except CLI_Screen_Size_Exception:
-            print("Increase your window size!")
-            return 0
 
         self.stdscr.border()
         self.stdscr.addstr(0,0, "cli-audio",curses.A_REVERSE)
@@ -35,6 +32,10 @@ class FrontEnd:
         self.stdscr.addstr(9,10, "ESC - Quit")
         self.updateSong()
         self.stdscr.refresh()
+        
+        except CLI_Screen_Size_Exception:
+            print("Increase your window size!")
+            return 0
 
         # while the True boolean is true, the menu allows for certain actions 
         # to be taken when the corresponding key is pressed. The first line in 
