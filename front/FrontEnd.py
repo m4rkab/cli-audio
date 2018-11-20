@@ -26,18 +26,19 @@ class FrontEnd:
             height, width = self.stdscr.getmaxyx()
             if (height < 20 or width < 100):
             	raise CLI_Screen_Size_Exception
-            except (CLI_Audio_Exception, CLI_Screen_Size_Exception) as err:
+	    else:
+		self.stdscr.border()
+       		self.stdscr.addstr(0,0, "cli-audio",curses.A_REVERSE)
+        	self.stdscr.addstr(5,10, "c - Change current song")
+        	self.stdscr.addstr(6,10, "p - Play/Pause")
+        	self.stdscr.addstr(7,10, "l - Library")
+        	self.stdscr.addstr(9,10, "ESC - Quit")
+        	self.updateSong()
+        	self.stdscr.refresh()
+	
+	except CLI_Audio_Exception.CLI_Screen_Size_Exception:
                 print("Screen size is too small")
                 self.quit()
-
-        self.stdscr.border()
-        self.stdscr.addstr(0,0, "cli-audio",curses.A_REVERSE)
-        self.stdscr.addstr(5,10, "c - Change current song")
-        self.stdscr.addstr(6,10, "p - Play/Pause")
-        self.stdscr.addstr(7,10, "l - Library")
-        self.stdscr.addstr(9,10, "ESC - Quit")
-        self.updateSong()
-        self.stdscr.refresh()
 
         # while the True boolean is true, the menu allows for certain actions 
         # to be taken when the corresponding key is pressed. The first line in 
