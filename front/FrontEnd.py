@@ -16,24 +16,25 @@ class FrontEnd:
 		#self.player.play(sys.argv[1])
 		curses.wrapper(self.menu)
 	
-	def menu(self, args):
-		"""creates a menu for the player to interact with"""
-		self.stdscr = curses.initscr()
-		#try to set window
-		#if the window is too small, print error and quit
-		try:
-			height, width = self.stdscr.getmaxyx()
-			if (height < 20 or width < 100):
-				raise CLI_Screen_Size_Exception
-			else:
-				self.stdscr.border()
-				self.stdscr.addstr(0,0, "cli-audio",curses.A_REVERSE)
-				self.stdscr.addstr(5,10, "c - Change current song")
-				self.stdscr.addstr(6,10, "p - Play/Pause")
-				self.stdscr.addstr(7,10, "l - Library")
-				self.stdscr.addstr(9,10, "ESC - Quit")
-				self.updateSong()
-				self.stdscr.refresh()
+        def menu(self, args):  
+        self.stdscr = curses.initscr()  
+        self.stdscr.border()  
+        while True:
+            try:
+                height, width = self.stdscr.getmaxyx()  
+                if height < 20 or width < 100:
+                    raise CLI_Audio_Exception.CLI_Screen_Size_Exception
+
+                else:
+                    self.stdscr.clear() 
+                    self.stdscr.border() 
+                    self.stdscr.addstr(0, 0, "cli-audio", curses.A_REVERSE)  
+                    self.stdscr.addstr(5, 10, "c - Change current song")  
+                    self.stdscr.addstr(6, 10, "p - Play/Pause")  
+                    self.stdscr.addstr(7, 10, "l - Library")  
+                    self.stdscr.addstr(9, 10, "ESC - Quit")  
+                    self.updateSong()  
+                    self.stdscr.refresh() 
 					
 		except CLI_Audio_Exception.CLI_Screen_Size_Exception:
 			print("Screen size is too small")
