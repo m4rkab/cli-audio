@@ -81,5 +81,8 @@ class FrontEnd:
         
 
     def quit(self):
-        self.player.stop()
+        try:
+            self.player.stop()
+        except:
+            sys.exit("No song was playing.")
         exit()
