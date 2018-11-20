@@ -26,7 +26,7 @@ class FrontEnd:
             height, width = self.stdscr.getmaxyx()
             if (height < 20 or width < 100):
             	raise CLI_Screen_Size_Exception
-            except CLI_Screen_Size_Exception:
+            except (CLI_Audio_Exception, CLI_Screen_Size_Exception) as err:
                 print("Screen size is too small")
                 self.quit()
 
@@ -88,5 +88,8 @@ class FrontEnd:
 
     def quit(self):
         """allows the player to quit"""
-        self.player.stop()
-	exit()
+        try:
+            self.player.stop()
+        except:
+            str("no song was playing")
+        exit()
