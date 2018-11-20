@@ -67,4 +67,17 @@ class Player:
     def callback(self, in_data, frame_count, time_info, status):
         data = self.wf.readframes(frame_count)
         return (data, pyaudio.paContinue)
+    
+    def list(self):
+        self.songlist = []
+        mylist = os.listdir("./media")
+        
+        for file in mylist:
+            filename, extension = os.path.splitext(file)
+            
+            if extension == ".wav":
+                self.songlist.append(filename)
+                
+        return self.songlist
+                                  
 
