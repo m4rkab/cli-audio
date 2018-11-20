@@ -25,14 +25,14 @@ class FrontEnd:
                 raise CLI_Screen_Size_Exception
             else:
 
-        self.stdscr.border()
-        self.stdscr.addstr(0,0, "cli-audio",curses.A_REVERSE)
-        self.stdscr.addstr(5,10, "c - Change current song")
-        self.stdscr.addstr(6,10, "p - Play/Pause")
-        self.stdscr.addstr(7,10, "l - Library")
-        self.stdscr.addstr(9,10, "ESC - Quit")
-        self.updateSong()
-        self.stdscr.refresh()
+            self.stdscr.border()
+            self.stdscr.addstr(0,0, "cli-audio",curses.A_REVERSE)
+            self.stdscr.addstr(5,10, "c - Change current song")
+            self.stdscr.addstr(6,10, "p - Play/Pause")
+            self.stdscr.addstr(7,10, "l - Library")
+            self.stdscr.addstr(9,10, "ESC - Quit")
+            self.updateSong()
+            self.stdscr.refresh()
         
         except CLI_Screen_Size_Exception:
             print("Increase your window size!")
