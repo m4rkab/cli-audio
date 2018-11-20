@@ -22,8 +22,8 @@ class FrontEnd:
         self.stdscr = curses.initscr()
 		# try to set window
 		# if the window is too small, print error and quit
-            try:
-                height, width = self.stdscr.getmaxyx()
+        try:
+            height, width = self.stdscr.getmaxyx()
                 if (height < 20 or width < 100):
                     raise CLI_Screen_Size_Exception
             except CLI_Screen_Size_Exception:
