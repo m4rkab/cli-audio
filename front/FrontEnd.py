@@ -89,4 +89,4 @@ class FrontEnd:
     def quit(self):
         """allows the player to quit"""
         self.player.stop()
-		exit()
+	exit()
