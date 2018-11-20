@@ -37,16 +37,8 @@ class Player:
         self.paused = False
         #try:
         if not Path(track).is_file():
-            raise CLI_Audio_Exception.CLI_File_Exception
-        #except CLI_Audio_Exception.CLI_File_Exception:
-           # currentSong = "Nothing playing."
-           # self.stdscr.refresh()
-           # print("File not found")
-           # return 0;
-
-        
+            raise CLI_Audio_Exception.CLI_File_Exception    
         self.currentSong = track
-        track = './media/' + track + '.wav'
         self.wf = wave.open(track, 'rb')
 
         # instantiate PyAudio (1)
