@@ -24,8 +24,8 @@ class FrontEnd:
 		# if the window is too small, print error and quit
         try:
             height, width = self.stdscr.getmaxyx()
-                if (height < 20 or width < 100):
-                    raise CLI_Screen_Size_Exception
+            if (height < 20 or width < 100):
+            	raise CLI_Screen_Size_Exception
             except CLI_Screen_Size_Exception:
                 print("Screen size is too small")
                 self.quit()
