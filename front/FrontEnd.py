@@ -26,6 +26,7 @@ class FrontEnd:
                 self.stdscr.addstr(9,10, "ESC - Quit")
                 self.updateSong()
                 self.stdscr.refresh()
+        except:
                 
         while True:
             c = self.stdscr.getch()
