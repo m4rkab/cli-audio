@@ -81,7 +81,7 @@ class FrontEnd:
             self.player.play(path.decode(encoding="utf-8"))
         except:
             print("File path does not exist.")
-            self.stdscr.refresh()
+            self.stdscr.flush()
         
 
     def quit(self):
