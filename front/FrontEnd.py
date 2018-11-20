@@ -35,7 +35,7 @@ class FrontEnd:
                 self.updateSong()
                 self.stdscr.refresh()
                 
-         except CLI_Screen_Size_Exception:
+        except CLI_Screen_Size_Exception:
             print("Screen size is too small")
             self.quit()
         
