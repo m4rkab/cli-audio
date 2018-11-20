@@ -23,6 +23,9 @@ class FrontEnd:
             height, width = self.stdscr.getmaxyx()
             if height < 20 or width < 100:
                 raise CLI_Screen_Size_Exception
+                except (CLI_Audio_Exception, CLI_Screen_Size_Exception) as err:
+                    print("screen size is too small")
+                    self.quit()
             else:
 
                 self.stdscr.border()
@@ -34,9 +37,6 @@ class FrontEnd:
                 self.updateSong()
                 self.stdscr.refresh()
         
-        except (CLI_Audio_Exception, CLI_Screen_Size_Exception) as err:
-            print("screen size is too small")
-            self.quit()
 
         # while the True boolean is true, the menu allows for certain actions 
         # to be taken when the corresponding key is pressed. The first line in 
