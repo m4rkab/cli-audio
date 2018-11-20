@@ -19,6 +19,7 @@ class FrontEnd:
     def menu(self, args):
         """creates a menu for the player to interact with"""
         self.stdscr = curses.initscr()
+        while True:
         try:
             height, width = self.stdscr.getmaxyx()
             if height < 20 or width < 100:
